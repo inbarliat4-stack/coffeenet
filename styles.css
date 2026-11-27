@@ -154,27 +154,31 @@ img { display: block; max-width: 100%; }
 .splash .pt { position: absolute; left: 0; width: 100%; pointer-events: none; }
 .splash .pt.top { top: -12px; }
 .splash .pt.bottom { bottom: -28px; }
-.splash .pt.moka { width: 82px; left: auto; right: 17px; top: 300px; }
-.splash .pt.cup1 { width: 45px; left: 91px; top: 488px; }
-.splash .center { position: absolute; top: 382px; left: 0; right: 0; display: flex; justify-content: center; }
+/* Positions in % of the screen height (design was 844px tall), so short screens keep the layout. */
+.splash .pt.moka { width: 82px; left: auto; right: 17px; top: 35.5%; }
+.splash .pt.cup1 { width: 45px; left: 91px; top: 57.8%; }
+.splash .center { position: absolute; top: 45.3%; left: 0; right: 0; display: flex; justify-content: center; text-decoration: none; }
+.splash .logo.xl .word { font-size: min(46px, 12.5vw); }
 .splash .logo .beans { animation: beat 1.4s ease-in-out infinite; }
 @keyframes beat { 0%, 100% { transform: translateX(28px) scale(1); } 50% { transform: translateX(28px) scale(1.12); } }
 
 /* ---------- welcome ---------- */
-.welcome .body { display: flex; flex-direction: column; align-items: center; padding-top: 52px; }
-.tagline { font: 400 22px/25px var(--f-body); color: var(--ink); text-align: center; margin: 14px 8px 0; max-width: 340px; }
-.hero-cup { width: 217px; margin: 26px 0 0 -10px; filter: drop-shadow(20px 18px 22px rgba(0,0,0,.18)); }
-.welcome .cta { display: flex; flex-direction: column; gap: 17px; margin-top: 52px; width: 224px; }
+/* Sizes scale with the screen height (vh), capped at the design values, so both buttons fit on short screens. */
+.welcome .body { display: flex; flex-direction: column; align-items: center; padding: clamp(20px, 6.2vh, 52px) 0 24px; }
+.tagline { font: 400 clamp(17px, 2.6vh, 22px)/1.15 var(--f-body); color: var(--ink); text-align: center; margin: 14px 16px 0; max-width: 340px; }
+.hero-cup { width: auto; height: clamp(150px, 37vh, 312px); margin: clamp(12px, 3vh, 26px) 0 0 -10px; filter: drop-shadow(20px 18px 22px rgba(0,0,0,.18)); }
+.welcome .cta { display: flex; flex-direction: column; gap: clamp(12px, 2vh, 17px); margin-top: clamp(20px, 6.2vh, 52px); width: 224px; }
 
 /* ---------- intro / onboarding ---------- */
-.intro .body { display: flex; flex-direction: column; align-items: center; text-align: center; padding: 68px 30px 0; }
-.intro .art { height: 160px; display: grid; place-items: center; }
-.intro h2 { font: 800 21px/1.2 var(--f-head); color: var(--plum); margin: 40px 0 26px; }
+.intro .body { display: flex; flex-direction: column; align-items: center; text-align: center; padding: clamp(24px, 8vh, 68px) 24px 0; }
+.intro .art { height: clamp(96px, 19vh, 160px); display: grid; place-items: center; }
+.intro .art img { max-height: clamp(96px, 19vh, 160px); width: auto; }
+.intro h2 { font: 800 21px/1.2 var(--f-head); color: var(--plum); margin: clamp(20px, 4.7vh, 40px) 0 clamp(14px, 3vh, 26px); }
 .intro p { font: 400 17px/26px var(--f-body); color: var(--ink); margin: 0 0 14px; }
 .dots { display: flex; gap: 14px; justify-content: center; margin: auto 0 28px; }
 .dots span { width: 10px; height: 10px; border-radius: 50%; background: #d9d9d9; transition: .2s; }
 .dots span.on { background: var(--pink); width: 14px; height: 14px; margin-top: -2px; }
-.intro .cta { width: 288px; margin-bottom: 26px; }
+.intro .cta { width: min(288px, 100%); flex: none; margin-bottom: 26px; }
 .intro .skip { align-self: flex-end; height: 22px; margin-bottom: 22px; }
 .intro .skip.ghost { visibility: hidden; }
 
