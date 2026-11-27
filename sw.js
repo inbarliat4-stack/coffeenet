@@ -1,5 +1,5 @@
 /* CoFFeeNet offline cache. Bump VERSION whenever app files change so phones pick up the update. */
-const VERSION = "coffeenet-v7";
+const VERSION = "coffeenet-v8";
 const IMGS = [
   "av-avi.png", "av-cofifi.png", "av-cup.png", "av-cupicon.svg", "av-dan.png", "av-decafe.png", "av-fun.png", "av-kef.png",
   "av-liat.png", "av-ron.png", "btn-best.png", "btn-locate.png", "cup-card.png", "cup-tab.png", "hero-cup.png", "logo-beans.png",
