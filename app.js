@@ -264,7 +264,7 @@
   const R = {};
 
   R.splash = () => {
-    setTimeout(() => { if (location.hash === "" || location.hash === "#/" || location.hash === "#/splash") go(S.user ? "#/home" : "#/welcome"); }, 2200);
+    setTimeout(() => { if (location.hash === "" || location.hash === "#/" || location.hash === "#/splash") go("#/welcome"); }, 2200); // always walk through welcome + the 3 onboarding steps
     return screen("splash", `
       <img class="pt top" src="${IMG}splash-top.png" alt="">
       <img class="pt moka" src="${IMG}splash-moka.png" alt="">
@@ -1826,6 +1826,8 @@
 
   if (S.myShop) delete S.myShop.ll;
   refreshKm();
+  // Every page load starts from the splash, so visitors always see welcome + onboarding
+  if (location.hash) history.replaceState(null, "", location.pathname + location.search);
   window.addEventListener("hashchange", () => { document.querySelectorAll(".toast").forEach((n) => n.remove()); route(); });
   route();
   setInterval(tick, 1000);
